@@ -43,5 +43,5 @@ resource "datadog_monitor" "monitor" {
     ok       = var.ok_threshold
   }
 
-  locked = var.locked
+  restricted_roles = var.restricted_roles
 }

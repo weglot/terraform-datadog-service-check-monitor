@@ -6,22 +6,23 @@ A good example use can be found [here](https://github.com/kabisa/terraform-datad
 ## Getting Started
 
 Pre-commit:
-   - Install [pre-commit](http://pre-commit.com/). E.g. `brew install pre-commit`.
-   - Run `pre-commit install` in this repo. (Every time you clone a repo with pre-commit enabled you will need to run the pre-commit install command)
-   - That’s it! Now every time you commit a code change (`.tf` file), the hooks in the `hooks:` config `.pre-commit-config.yaml` will execute.
+
+- Install [pre-commit](http://pre-commit.com/). E.g. `brew install pre-commit`.
+- Run `pre-commit install` in this repo. (Every time you clone a repo with pre-commit enabled you will need to run the pre-commit install command)
+- That’s it! Now every time you commit a code change (`.tf` file), the hooks in the `hooks:` config `.pre-commit-config.yaml` will execute.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_datadog"></a> [datadog](#requirement\_datadog) | ~> 3.4 |
+| <a name="requirement_datadog"></a> [datadog](#requirement\_datadog) | ~> 3.39 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.4.0 |
+| <a name="provider_datadog"></a> [datadog](#provider\_datadog) | 3.39.0 |
 
 ## Modules
 
@@ -49,7 +50,6 @@ No modules.
 | <a name="input_env"></a> [env](#input\_env) | This refers to the environment or which stage of deployment this monitor is checking. Good values are prd, acc, tst, dev... | `string` | n/a | yes |
 | <a name="input_exclude_tags"></a> [exclude\_tags](#input\_exclude\_tags) | List of tags for the "exclude" part of the query. Can be either key:value tags or boolean tags. | `list(string)` | `[]` | no |
 | <a name="input_include_tags"></a> [include\_tags](#input\_include\_tags) | List of tags for the "over" part of the query. Can be either key:value tags or boolean tags. | `list(string)` | `[]` | no |
-| <a name="input_locked"></a> [locked](#input\_locked) | Makes sure only the creator or admin can modify the monitor | `bool` | `true` | no |
 | <a name="input_metric_name"></a> [metric\_name](#input\_metric\_name) | Name of the status metric being monitored. If this check is not ok for a number of times, as defined by the threshold, an alert is raised. | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Name that the monitor should get. Will be automatically prefixed with the Service name. Also name\_suffix and name\_prefix have an effect on the eventual name. It's best set this property to a value that best describes the concern you're trying to cover with the monitor. Eg. Connection Available | `string` | n/a | yes |
 | <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | Can be used to prefix to the Monitor name | `string` | `""` | no |
@@ -63,6 +63,7 @@ No modules.
 | <a name="input_priority"></a> [priority](#input\_priority) | Number from 1 (high) to 5 (low). | `number` | n/a | yes |
 | <a name="input_recovery_message"></a> [recovery\_message](#input\_recovery\_message) | Recovery message to be sent when the alert threshold is no longer hit | `string` | `""` | no |
 | <a name="input_require_full_window"></a> [require\_full\_window](#input\_require\_full\_window) | n/a | `bool` | `true` | no |
+| <a name="input_restricted_roles"></a> [restricted\_roles](#input\_restricted\_roles) | A list of unique role identifiers to define which roles are allowed to edit the monitor | `list(string)` | `[]` | no |
 | <a name="input_service"></a> [service](#input\_service) | Service name of what you're monitoring. This also sets the service:<service> tag on the monitor | `string` | n/a | yes |
 | <a name="input_service_display_name"></a> [service\_display\_name](#input\_service\_display\_name) | n/a | `string` | `null` | no |
 | <a name="input_track_as_cluster_level_status"></a> [track\_as\_cluster\_level\_status](#input\_track\_as\_cluster\_level\_status) | This allows to check for the status of a cluster instead of individual hosts, warning and critical thresholds are then expressed as percentages | `bool` | `false` | no |
